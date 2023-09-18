@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Assignment</string>
+    <string-array name="spinner_options">
+        <item>Nutrition</item>
+        <item>Exercise</item>
+    </string-array>
+</resources>
