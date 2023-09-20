@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.assignment.databinding.FragmentListBinding
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -33,7 +34,8 @@ class ListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentListBinding.inflate(inflater,container,false)
-        binding.postList.layoutManager=LinearLayoutManager(context)
+        //binding.postList.layoutManager=LinearLayoutManager(context)
+        binding.postList.layoutManager= StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         binding.postList.hasFixedSize()
         postArrayList= arrayListOf<postDs>()
         nodeList= arrayListOf<tempData>()
@@ -64,7 +66,8 @@ class ListFragment : Fragment() {
                         override fun onItemClick(position: Int) {
                             val ctpost = nodeList[position]
                             val nodePath = ctpost.id.toString()
-                            val fragment = PostFragment()
+                            val fragment = ForumFragment()
+                            //val fragment = PostFragment()
                             val bundle=Bundle()
                             bundle.putString("post_id",nodePath.toString())
                             fragment.arguments = bundle
